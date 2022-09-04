@@ -56,12 +56,6 @@ public class DragLook : MonoBehaviour
                 CurrentX = Mathf.Clamp(CurrentX, YAngleMin, YAngleMax);
             }
         }
-
-        else if (Input.touchCount > 1 && !obstacle)
-        {
-           
-         //   Debug.Log("Inside Second touch and obstacle");
-        }
     }
     private void LateUpdate()
     {

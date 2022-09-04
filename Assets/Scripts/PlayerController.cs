@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -32,8 +30,6 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    public float FireDamage;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +59,6 @@ public class PlayerController : MonoBehaviour
 
         float angleToLook = Mathf.Atan2(joystick.PosInput.x, joystick.PosInput.y) * Mathf.Rad2Deg + Cam.eulerAngles.y;
         Player.transform.rotation = Quaternion.Euler(0, angleToLook, 0);
-        //Vector3 move = new Vector3(Movement.x, Movement.y, Movement.z).normalized;
         Vector3 movdir = Quaternion.Euler(0, angleToLook, 0) * Vector3.forward;
         if (joystick.Move)
         {
@@ -71,13 +66,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {       
-       
-
-    }
-
-     private void ShootGun()
+    private void ShootGun()
     {
         RaycastHit hit;
         GameObject Bullet = GameObject.Instantiate(BulletPrefab, BarellTransform.position, Quaternion.identity, BulletParent);
@@ -87,7 +76,8 @@ public class PlayerController : MonoBehaviour
             bulletController.target = hit.point;
             bulletController.hit = true;
         }
-        else {
+        else
+        {
             bulletController.target = Cam.position + Cam.forward * 25f;
             bulletController.hit = true;
         }

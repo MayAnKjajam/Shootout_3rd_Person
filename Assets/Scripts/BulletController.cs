@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -31,7 +29,6 @@ public class BulletController : MonoBehaviour
     [System.Obsolete]
     private void OnCollisionEnter(Collision collision)
     {
-       
         Destroy(gameObject,1f);
     }
     private void OnTriggerEnter(Collider other)

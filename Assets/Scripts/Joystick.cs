@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour,IDragHandler,IPointerDownHandler,IPointerUpHandler
@@ -11,13 +8,6 @@ public class Joystick : MonoBehaviour,IDragHandler,IPointerDownHandler,IPointerU
     public Image JoyStickBG,JoyStick;
     public Vector2 PosInput;
     public bool Move;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     public void OnDrag(PointerEventData eventData)
     {
        
@@ -33,20 +23,17 @@ public class Joystick : MonoBehaviour,IDragHandler,IPointerDownHandler,IPointerU
         }
 
     }
-
     public void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
         Move = true;
     }
-
     public void OnPointerUp(PointerEventData eventData)
     {
         PosInput = Vector2.zero;
         JoyStick.rectTransform.anchoredPosition = Vector2.zero;
         Move = false;
     }
-
     public float InputHorizontal()
     {
         if (PosInput.x != 0)
@@ -58,7 +45,6 @@ public class Joystick : MonoBehaviour,IDragHandler,IPointerDownHandler,IPointerU
             return Input.GetAxis("Horizontal");
         }
     }
-
     public float InputVertical()
     {
         if (PosInput.y != 0)
